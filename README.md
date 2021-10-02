@@ -5,6 +5,7 @@ Repositório que reunem as anotações/repositórios dos cursos realizados por m
 ## Alura
 
 - 2017 - [Webservices REST com JAX-RS e Jersey](https://github.com/felipebbarbosa/curso_alura_webservices-rest-com-jaxrs-e-jersey)
+- 2018 - [Spring MVC](https://github.com/felipebbarbosa/curso_alura_spring-mvc)
 
 ## Rocketseat
 
