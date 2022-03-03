@@ -15,4 +15,7 @@ Repositório que reunem as anotações/repositórios dos cursos realizados por m
 
 ## Udemy
 
+#### Willian Justen
+
 - 2020 - [Gatsby: Crie um site PWA com React, GraphQL e Netlify CMS](https://github.com/felipebbarbosa/curso_udemy_gatsby) ✔
+- 2022 - [React Avançado: Crie aplicações com NextJS, Strapi e mais](https://github.com/felipebbarbosa/curso_udemy_react-avancado_boilerplate) *(em andamento)*
