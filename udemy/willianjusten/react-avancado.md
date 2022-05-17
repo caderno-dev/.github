@@ -363,11 +363,21 @@ alter user strapi with encrypted password 'strapi123';
 grant all privileges on database strapi to strapi;
 ```
 
-### Iniciando o Strapi local
+### Iniciando o Strapi local (opção 1)
 
 ```
 yarn create strapi-app reactavancado-api
 ```
+
+### Iniciando o Strapi com Docker (opção 2)
+
+Para iniciar o Strapi com Docker, basta seguir três passos:
+
+- Criar um arquivo `docker-compose.yaml`
+- Baixar as últimas imagens através do comando `docker-compose pull`
+- Rodar a *stack* através do comando `docker-compose up`, opcionalmente pode-se usar o atributo `-d` (detached) para rodar em background no terminal.
+
+> Extra: Instalando o [Docker no Windows com WSL](https://docs.docker.com/desktop/windows/wsl/)
 
 
 
