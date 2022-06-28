@@ -6,7 +6,7 @@ Repositório que reúnem as anotações/repositórios dos cursos realizados por 
 
 - 2017 - [Webservices REST com JAX-RS e Jersey](https://github.com/felipebbarbosa/curso_alura_webservices-rest-com-jaxrs-e-jersey) ✔
 - 2018 - [Spring MVC](https://github.com/felipebbarbosa/curso_alura_spring-mvc) ✔
-- 2021 - [Formação Java e Orientação a Objetos](./formacao-java/index.md) ⏳
+- 2021 - [Formação Java e Orientação a Objetos](./alura/formacao-java/index.md) ⏳
 
 ## Full Cycle
 
