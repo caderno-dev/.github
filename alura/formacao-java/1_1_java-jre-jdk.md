@@ -1,5 +1,7 @@
 # Java JRE e JDK: compile e execute o seu programa
 
+[Página do curso](https://cursos.alura.com.br/course/java-primeiros-passos)
+
 ## O que é Java?
 
 > "Pai do Java": James Gosling
