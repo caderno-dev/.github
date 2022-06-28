@@ -46,9 +46,9 @@ Características da linguagem Java:
 
 > Java Development Kit (JDK) = JRE + ferramentas
 
-- [Instalando o JDK no Linux](./install-jdk-linux.pdf)
-- [Instalando o JDK no Mac](./install-jdk-mac.pdf)
-- [Instalando o JDK no Windows](./install-jdk-windows.pdf)
+- [Instalando o JDK no Linux](./docs/install-jdk-linux.pdf)
+- [Instalando o JDK no Mac](./docs/install-jdk-mac.pdf)
+- [Instalando o JDK no Windows](./docs/install-jdk-windows.pdf)
 
 
 
