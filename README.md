@@ -8,9 +8,7 @@ Repositório que reúnem as anotações/repositórios dos cursos realizados por 
 - 2018 - [Spring MVC](https://github.com/felipebbarbosa/curso_alura_spring-mvc) ✔
 - 2021 - [Formação Java e Orientação a Objetos](./alura/formacao-java/README.md) ⏳
 
-## Full Cycle---
-
-[Voltar](./README.md)
+## Full Cycle
 
 - 2022 - [Imersão Full Stack && Full Cycle](./full-cycle/imersao-full-stack-e-full-cycle.md) ⏳
 
