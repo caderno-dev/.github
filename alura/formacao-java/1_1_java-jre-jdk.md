@@ -42,13 +42,18 @@ Características da linguagem Java:
 
 ## Instalação
 
-> Java Runtime Environment (JRE) = JVM + bibliotecas
-
-> Java Development Kit (JDK) = JRE + ferramentas
 
 - [Instalando o JDK no Linux](./docs/install-jdk-linux.pdf)
 - [Instalando o JDK no Mac](./docs/install-jdk-mac.pdf)
 - [Instalando o JDK no Windows](./docs/install-jdk-windows.pdf)
+
+> **Para saber mais:** 
+> Java Runtime Environment (JRE) = JVM + bibliotecas;
+> Java Development Kit (JDK) = JRE + ferramentas
+
+---
+
+[Voltar](./README.md)
 
 
 

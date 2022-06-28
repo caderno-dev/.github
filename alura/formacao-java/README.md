@@ -3,7 +3,7 @@
 
 ## 1 - Entender a linguagem Java e orientação objetos
 
-- [Java JRE e JDK: compile e execute o seu programa](./java-jre-jdk.md) ✔
+- [Java JRE e JDK: compile e execute o seu programa](./1_1_java-jre-jdk.md) ✔
 - Java OO: Entendendo a Orientação a Objetos ✔
 - Java Polimorfismo: entenda herança e interfaces ✔
 - Java Exceções: aprenda a criar, lançar e controlar exceções ✔
@@ -24,3 +24,6 @@
 
 - 7days of Code | Alura
 
+---
+
+[Voltar](../../README.md)
