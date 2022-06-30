@@ -10,7 +10,7 @@ Repositório que reúnem as anotações/repositórios dos cursos realizados por 
 
 ## Full Cycle
 
-- 2022 - [Imersão Full Stack && Full Cycle](./full-cycle/imersao-full-stack-e-full-cycle.md) ⏳
+- 2022 - [Imersão Full Stack && Full Cycle](./full-cycle/imersao-full-stack-e-full-cycle/README.md) ⏳
 
 ## Rocketseat
 
