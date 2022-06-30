@@ -10,7 +10,7 @@ Semana do dia 20/06 à 24/06 de 2022.
 
 - [System Design no Mercado Livre na prática](https://www.youtube.com/watch?v=FgeqYkqMqcw)
 
-  > [Diagrama apresentado na live](./live-meli-system-design.pdf)
+  > [Diagrama apresentado na live](./docs/live-meli-system-design.pdf)
 
 - [Case: Criptomoedas na XP Investimentos: Desenvolvimento da plataforma](https://www.youtube.com/watch?v=-j9l_JNouHg)
 
