@@ -380,5 +380,28 @@ Para iniciar o Strapi com Docker, basta seguir três passos:
 > Extra: Instalando o [Docker no Windows com WSL](https://docs.docker.com/desktop/windows/wsl/)
 
 
+### Importando e Exportando dados no PostgreSQL
+
+Para checar status do banco:
+```
+sudo service postgresql status
+```
+
+Para exportar:
+
+```
+pg_dump -c --if-exists --exclude-table=strapi_administrator -h 127.0.0.1 -U strapi -d strapi -W > strapi.sql
+```
+
+Para importar:
+```
+pqsl -h 127.0.0.1 -U strapi -d strapi -W < strapi.sql
+```
+
+Onde:
+- `-U`: usuário
+- `-d`: banco de dados
+- `-W`: solicita senha
+
 
 
