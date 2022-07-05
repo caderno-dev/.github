@@ -1,7 +1,5 @@
 # Java Polimorfismo: Entenda herança e interfaces
 
-[Página do curso](https://cursos.alura.com.br/course/java-heranca-interfaces-polimorfismo)
-
 ## Introdução a herança
 
 - Na sintaxe da linguagem, a herança é expressada pela palavras `extends`. Por exemplo: 
@@ -87,8 +85,9 @@ public class Gerente extends Funcionario {
 
 - Com composições e interfaces teremos mais flexibilidade com nosso código, já que não nos prenderemos ao acoplamento que a herança propõe.
 
-## Conclusão
+## Links de referência
 
+- [Página do curso](https://cursos.alura.com.br/course/java-heranca-interfaces-polimorfismo)
 - [Projeto final](https://caelum-online-public.s3.amazonaws.com/788-java-heranca-interfaces-polimorfismo/07/java3-projeto-completo.zip)
 
 ---
