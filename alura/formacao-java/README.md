@@ -5,7 +5,7 @@
 - [Java JRE e JDK: Compile e execute o seu programa](./1_1_java-jre-jdk.md) ✔
 - [Java OO: Entendendo a Orientação a Objetos](./1_2_java-oo.md) ✔
 - [Java Polimorfismo: Entenda herança e interfaces](./1_3_java-polimorfismo.md) ✔
-- Java Exceções: Aprenda a criar, lançar e controlar exceções ✔
+- [Java Exceções: Aprenda a criar, lançar e controlar exceções](./1_4_java-excecoes.md) ✔
 
 ## 2 - Conhecer as principais bibliotecas
 
