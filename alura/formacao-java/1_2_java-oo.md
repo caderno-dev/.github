@@ -1,7 +1,5 @@
 # Java OO: Entendendo a Orientação a Objetos
 
-[Página do curso](https://cursos.alura.com.br/course/java-introducao-orientacao-objetos)
-
 ## O problema do paradigma procedural
 
 - Idéia central do paradigma OO: Dado e funcionalidade sobre ele andam juntos.
@@ -37,6 +35,10 @@
 - A palavra-chave `static` torna um atributo/método da classe, e não mais do objeto. **Os métodos estáticos acessam apenas atributos estáticos**.
 
 - Você pode usar `this( )` para reaproveitamento de construtores.
+
+## Links de referência
+
+- [Página do curso](https://cursos.alura.com.br/course/java-introducao-orientacao-objetos)
 
 ---
 
