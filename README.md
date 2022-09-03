@@ -1,6 +1,6 @@
 # Cursos realizados
 
-Repositório que reúnem as anotações/repositórios dos cursos realizados por mim.
+Repositório que reúne as anotações e ou repositórios dos cursos realizados.
 
 ## Alura
 
