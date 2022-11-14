@@ -638,8 +638,10 @@ O [Next.js](https://nextjs.org/docs/basic-features/environment-variables) tem su
 
 - `process.env`: É utilizado para atributos que variam de acordo com o ambiente, por exemplo, desenvolvimento e produção. Sendo assim, é necessário criar um arquivo para cada ambiente: `.env.development` e `.env.production`. Com isso, por padrão, quando executar o comando `next dev`, o arquivo `.env.development` será carregado. Se executar `next start`, o `.env.production` que será carregado.
 
-Além disso, o Next tem um "truque" que permite a aplicação chamar uma variável de ambiente no lado do cliente (navegador) e para isso, basta colocar o prefixo `NEXT_PUBLIC_` no nome da variável.
+Além disso, o **Next** tem um "truque" que permite a aplicação chamar uma variável de ambiente no lado do cliente (navegador) e para isso, basta colocar o prefixo `NEXT_PUBLIC_` no nome da variável.
 
 E para utilizar as variáveis no código basta chamar `process.env.NOME_DA_VARIAVEL`.
 
 Veja o [commit](https://github.com/felipebbarbosa/curso_udemy_react-avancado_landing-page/commit/fb17760d40f97fe724a39ea9889f03309e0b688f) das implementações feita em aula.
+
+
