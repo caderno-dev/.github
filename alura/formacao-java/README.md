@@ -12,7 +12,7 @@
 - [Java e java.lang: Programe com a classe Object e String](./2_1_java-lang.md) ✔
 - [Java e java.util: Coleções, Wrappers e Lambda expressions](./2_2_java-util.md) ✔
 - [Java e java.io: Streams, Reader e Writers](./2_3_java-io.md) ✔
-- Java Collections: Dominando listas, sets e mapas
+- [Java Collections: Dominando listas, sets e mapas](./2_4_java-collections.md) ✔
 
 ## 3 - Aprofundar em Java moderno e TDD
 
