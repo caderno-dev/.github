@@ -193,6 +193,47 @@ Dada uma `String`, invoque o `System.out.println` passando-a como argumento. É 
 palavras.forEach(System.out::println);
 ```
 
+## Streams: trabalhando melhor com coleções
+
+No Java 8 é possível, por exemplo, filtrar listas de forma interessante usando a interface [Stream](http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html). Porém, filtrar é só um dos métodos possíveis com `Stream` e para pegar um, você pode invocar através de um coleção, por exemplo: `cursos.stream()` e para filtrar os cursos que tem mais de 100 alunos:
+
+```
+cursos.stream().filter(c -> c.getAlunos() > 100);
+```
+
+O filtro também devolve um `Stream`! É um exemplo do que chamam de `fluent interface`.
+
+Detalhe: as **modificações em um stream não modificam a coleção/objeto que o gerou**. Tudo que é feito nesse fluxo de objetos, nesse `Stream`, não impacta, não tem efeitos colaterais na coleção original.
+
+Outro método interessante é o `map()`, que podemos por exemplo, pegar só a quantidade de alunos por curso, desta forma:
+
+```
+cursos.stream()
+    .filter(c -> c.getAlunos() > 100)
+    .map(Curso::getAlunos);
+```
+
+Esse `map` irá retornar um `Stream<Integer>`.
+
+### Streams primitivos
+
+Há um cuidado a ser tomado: com os tipos primitivos. Quando fizemos o `map(Curso::getAlunos)`, recebemos de volta um `Stream<Integer>`, que acaba fazendo o autoboxing dos `int`s. Isto é, utilizará mais recursos da JVM. Claro que, se sua coleção é pequena, o impacto será irrisório. Mas é possível trabalhar só com `int`s, invocando o método `mapToInt`:
+
+```
+IntStream stream = cursos.stream()
+   .filter(c -> c.getAlunos() > 100)
+   .mapToInt(Curso::getAlunos);
+```
+
+Ele devolve um `IntStream`, que não vai gerar autoboxing e possui novos métodos específicos para trabalhar com inteiros. Um exemplo? A soma:
+
+```
+int soma = cursos.stream()
+   .filter(c -> c.getAlunos() > 100)
+   .mapToInt(Curso::getAlunos)
+   .sum()
+```
+
 ## Links de referência
 
 - [Página do curso](https://cursos.alura.com.br/course/java-collections)
