@@ -16,7 +16,7 @@
 
 ## 3 - Aprofundar em Java moderno e TDD
 
-- [Java moderno: Tire proveito dos novos recursos do Java 8](./3_1_java_8.md)
+- [Java moderno: Tire proveito dos novos recursos do Java 8](./3_1_java_8.md) ✔
 - TDD e Java: Testes automatizados com JUnit
 
 ## 4 - Hora de praticar

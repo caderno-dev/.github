@@ -234,6 +234,110 @@ int soma = cursos.stream()
    .sum()
 ```
 
+### Optional
+
+[Optional](http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html) é uma importante nova classe do Java 8. É com ele que poderemos trabalhar de uma maneira mais organizada com possíveis valores `null`. Em vez de ficar comparando `if (algumaCoisa == null)`, o `Optional` já fornece uma série de métodos para nos ajudar nessas situações. Por exemplo, o `findAny()` do Stream retorna um `Optional` e podemos utilizar o método `ifPresent` para exibir o nome, assim: 
+
+```
+cursos.stream()
+   .filter(c -> c.getAlunos() > 100)
+   .findAny()
+   .ifPresent(c -> System.out.println(c.getNome()));
+```
+
+### Gerando uma coleção a partir de um Stream
+
+Invocar métodos no `stream` de uma coleção não altera o conteúdo da coleção original. Ele não gera efeitos colaterais. Porém, para gerar uma nova coleção a partir de um `stream`, utilizamos o método `collect`.
+
+O método `collect` recebe um `Collector`, uma interface não tão trivial de se implementar. Podemos usar a classe `Collectors`, cheio de *factory methods* que ajudam na criação de coletores. Um dos coletores mais utilizados é o retornado por `Collectors.toList()`:
+
+```
+List<Curso> resultados = cursos.stream()
+   .filter(c -> c.getAlunos() > 100)
+   .collect(Collectors.toList());
+```
+
+Podemos gerar mapas também. Por exemplo, um mapa que, dado o nome do curso, o valor atrelado é a quantidade de alunos. Um `Map<String, Integer>`. Utilizamos o `Collectors.toMap`. Ele recebe duas `Functions`. A primeira indica o que vai ser a chave, e a segunda o que será o valor:
+
+```
+Map mapa = cursos 
+.stream() 
+.filter(c -> c.getAlunos() > 100) 
+.collect(Collectors.toMap(c -> c.getNome(), c -> c.getAlunos())); 
+```
+
+### Outras vantagens do Stream
+
+Os Streams foram desenhados de uma forma a tirar proveito da programação funcional. Se você utilizá-los das formas acima, eles nunca gerarão efeitos colaterais. Isso é, apenas o stream será alterado, e nenhum outro objeto será impactado.
+
+Dada essa premissa, podemos pedir para que nosso `stream` seja processado em paralelo. Ele mesmo vai decidir quantas threads usar e fazer todo o trabalho, utilizando APIs mais complicadas (como a de fork join) para ganhar performance. Para fazer isso, basta utilizar `parallelStream()` em vez de `stream()`!
+
+Tome cuidado. Para streams pequenos, o custo de cuidado dessas threads e manipular os dados entre elas é alto e pode ser bem mais lento que o `Stream` tradicional.
+
+## A nova API de datas
+
+Para representar uma data em Java nessa nova API utilizamos a classe `LocalDate`, presente no pacote `java.time`.
+
+```
+LocalDate hoje = LocalDate.now();
+```
+
+Atráves do método `of` podemos definir uma data:
+
+```
+LocalDate evento = LocalDate.of(2023, Month.JUNE, 5);
+```
+
+### Trabalhando com Period
+
+Para saber a diferença entre duas datas podemos utilizar o método `between` da classe `Period`:
+
+```
+Period periodo = Period.between(hoje, evento);
+System.out.println(periodo);
+```
+
+### Uma API imutável
+
+Toda a API de datas é imutável. Ela nunca vai alterar a data original (ao contrário do `Calendar`).
+
+### Formatando suas datas
+
+Para formatar nossas datas podemos utilizar o `DateTimeFormatter`. Existem diversos já prontos, mas há ainda a alternativa de você criar o seu próprio formatador no padrão já conhecido de `dd/MM/yyyy`.
+
+Para fazer isso basta usar o método `ofPattern`:
+
+```
+evento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+```
+
+### Trabalhando com medida de tempo
+
+Para trabalhar com horas, minutos e segundos, utilizamos a classe `LocalDateTime`:
+
+```
+LocalDateTime agora = LocalDateTime.now();
+```
+
+### Lidando com modelos mais específicos
+
+É muito comum ignorarmos valores quando precisamos apenas de algumas medidas de tempo, como por exemplo ano e mês. Nessa caso no lugar de criarmos um `LocalDate` ou algo assim e ignorar o seu valor de dia, podemos trabalhar com os modelos mais específicos da nova API.
+
+Neste exemplo podemos usar o `YearMonth`, da seguinte forma:
+
+```
+YearMonth anoEMes = YearMonth.of(2015, Month.JANUARY);
+```
+
+Ou seja, existem diversas novas classes para expressar bem nossas intenções.
+
+Outro exemplo, para trabalharmos apenas com tempo podemos utilizar o `LocalTime`. Representar o horario do nosso intervalo de almoço, por exemplo, poderia ser feito com:
+
+```
+LocalTime intervalo = LocalTime.of(12, 30);
+```
+
+
 ## Links de referência
 
 - [Página do curso](https://cursos.alura.com.br/course/java-collections)
