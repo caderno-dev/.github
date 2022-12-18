@@ -18,6 +18,7 @@
 
 - [Java moderno: Tire proveito dos novos recursos do Java 8](./3_1_java_8.md) ✔
 - TDD e Java: Testes automatizados com JUnit
+- [Extra: Novidades do Java 9 e para frente](./3.3_java_9.md) ✔
 
 ## 4 - Hora de praticar
 
