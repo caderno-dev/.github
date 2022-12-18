@@ -13,7 +13,7 @@
 
 Diferente de uma `String` ou de tipos primitivos mais simples, o `Collections.sort` não sabe ordenar uma lista de `Aula`. De qual forma ele faria isso? Pelo nome da aula? Pela duração? Não daria para saber. Para que ele seja capaz de fazer isso, você precisa implementar a interface Comparable definindo um critério de comparação para os objetos desse tipo. 
 
-```
+```java
 public class Aula implements Comparable<Aula> {
 
     private String titulo;
@@ -46,7 +46,7 @@ public class Aula implements Comparable<Aula> {
 
 ### Ordenando com Java 8
 
-```
+```java
 aulas.sort(Comparator.comparing(Aula::getTempo));
 ```
 `
@@ -81,7 +81,7 @@ Herança das interfaces, dentro da API de coleções:
 
 Exemplo de código:
 
-```
+```java
 public class TestaPerformance {
 
     public static void main(String[] args) {
@@ -120,7 +120,7 @@ Uma das características mais interessantes da JVM é que ela sabe trabalhar em 
 
 O problema é que as coleções que estamos usando até agora não foram feitas para serem manipuladas em paralelo. No entanto, nada impede que usemos um método da classe Collections para transformar uma coleção comum em uma coleção para threads. É justamente isso que o método faz, retorna um nova coleção que pode ser compartilhada entre threads sem perigos.
 
-```
+```java
 Set<Aluno> alunosSincronizados = Collections.synchronizedSet(alunos);
 ```
 
@@ -139,7 +139,7 @@ Set<Aluno> alunosSincronizados = Collections.synchronizedSet(alunos);
 
 Para percorrer uma `Collection` em **Java 8** usando o método `forEach`. Por exemplo:
 
-```
+```java
 Set<String> conjunto = new HashSet<>();
 conjunto.add("A");
 conjunto.add("A"); // não adiciona, já existe
@@ -152,7 +152,7 @@ conjunto.forEach(letra -> {
 
 Antes do **Java 8** usávamos:
 
-```
+```java
 for(String letra: conjunto) {
     System.out.println(letra);
 }
@@ -164,7 +164,7 @@ No entanto, voltando ao passado mais longínquo, mais propriamente antes do **Ja
 
 Por exemplo:
 
-```
+```java
 Set<Aluno> alunos = javaColecoes.getAlunos();
 Iterator<Aluno> iterador = alunos.iterator();
 
@@ -186,7 +186,7 @@ A classe `Vector` possui as mesmas características que um `ArrayList`, com dife
 
 Podemos utilizar o `forEach` do Java 8 para iterar pelo conjunto de chaves que é retornado pelo método `keySet()P . Depois, para cada chave idade, nós pegamos o seu valor através do método get e imprimimos:
 
-```
+```java
 public class Exercicio {
 
     public static void main(String[] args) {
@@ -220,7 +220,7 @@ Para acessar apenas as chaves use o método `keySet()` do Map. Para acessar os v
 
 Para acessar as chaves devemos executar:
 
-```
+```java
 Set<String> chaves = nomesParaIdade.keySet();
 for (String nome : chaves) {
     System.out.println(nome);
@@ -229,7 +229,7 @@ for (String nome : chaves) {
 
 E para pegar os valores usamos:
 
-```
+```java
 Collection<Integer> valores = nomesParaIdade.values();
 for (Integer idade : valores) {
     System.out.println(idade);
@@ -238,13 +238,13 @@ for (Integer idade : valores) {
 
 Agora só falta a terceira coleção que devolve a associação. Para tal, existe o método `entrySet()` e cada associação é representado através da classe `Entry`:
 
-```
+```java
 Set<Entry<String, Integer>> associacoes = nomesParaIdade.entrySet();
 ```
 
 Repare que o método devolve um `Set` de `Entry`. Para acessar essa coleção basta usar o `foreach`:
 
-```
+```java
 Set<Entry<String, Integer>> associacoes = nomesParaIdade.entrySet();
 for (Entry<String, Integer> associacao : associacoes) {
     System.out.println(associacao.getKey() + " - " + associacao.getValue());

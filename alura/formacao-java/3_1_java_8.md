@@ -4,7 +4,7 @@
 
 A partir do Java 8 foi criado um novo recurso que possibilita adicionar **métodos em interfaces com implementação**. Por exemplo, o código do método `sort` da interface `List`:
 
-```
+```java
 default void sort(Comparator<? super E> c) {
     Collections.sort(this, c);
 }
@@ -16,7 +16,7 @@ Uma das grandes vantangens é poder evoluir um interface sem quebrar os códigos
 
 ### Como era feito a ordenação antes do Java 8
 
-```
+```java
 public class OrdenaString() {
     public static void main(String[] args) {
         List<String> palavras = Arrays.asList("felipe", "barbosa", "bomfim");
@@ -47,7 +47,7 @@ class ComparadorDeStringPorTamanho implements Comparator<String> {
 
 `forEach` um novo default method da interface `Iterable`. Ele recebe um `Consumer`, que é uma das muitas interfaces do novo pacote `java.util.functions`.
 
-```
+```java
 class ConsumidorDeString implements Consumer<String> {
     public void accept(String s) {
         System.out.println(s);
@@ -57,7 +57,7 @@ class ConsumidorDeString implements Consumer<String> {
 
 Podemos passar no `forEach`:
 
-```
+```java
 palavras.forEach(new ConsumidorDeString());
 ```
 
@@ -65,7 +65,7 @@ palavras.forEach(new ConsumidorDeString());
 
 Para quem está acostumado com Java (antes do 8), sabe que o método `forEach` do bloco anterior não precisa criar uma classe isolada só para consumir o `for`. Geralmente é criada **classes anônimas** diretamente no bloco do `for`, desta forma:
 
-```
+```java
 palavras.forEach(new Consumer<String>() {
     public void accept(String s) {
         System.out.println(s);
@@ -79,7 +79,7 @@ Porém, classes anônimas produzem uma certa verbosidade na sintaxe e a partir d
 
 Em vez de escrever a classe anônima, deixamos de escrever alguns itens que podem ser inferidos. Como essa interface só tem um método, não precisamos escrever o nome do método. Também não daremos `new`. Apenas declaramos os argumentos e o bloco a ser executado, separados por `->`:
 
-```
+```java
 palavras.forEach((String s) -> {
     System.out.println(s);
 });
@@ -89,7 +89,7 @@ Essa sintaxe funciona para qualquer interface que tenha **apenas um método abst
 
 Podemos também remover a declaração do tipo do parâmetro, que o compilador também infere:
 
-```
+```java
 palavras.forEach((s) -> {
     System.out.println(s);
 });
@@ -97,7 +97,7 @@ palavras.forEach((s) -> {
 
 Quando há apenas um parâmetro, nem mesmo os parenteses são necessários:
 
-```
+```java
 palavras.forEach(s -> {
     System.out.println(s);
 });
@@ -105,13 +105,13 @@ palavras.forEach(s -> {
 
 E como só é uma única instrução, não precisamos das chaves e nem do ponto e vírgula:
 
-```
+```java
 palavras.forEach(s -> System.out.println(s));
 ```
 
 Aplicando lambda no bloco do `Comparator`:
 
-```
+```java
 palavras.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
 ```
 
@@ -121,7 +121,7 @@ palavras.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
 
 Antes: 
 
-```
+```java
 new Thread(new Runnable() {
     @Override
     public void run() {
@@ -132,7 +132,7 @@ new Thread(new Runnable() {
 
 com Lambda:
 
-```
+```java
 new Thread(() -> System.out.println("Executando um Runnable")).start();
 ```
 
@@ -140,7 +140,7 @@ new Thread(() -> System.out.println("Executando um Runnable")).start();
 
 Usando esse código de exemplo:
 
-```
+```java
 palavras.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
 ```
 
@@ -148,7 +148,7 @@ palavras.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
 
 Na interface `Comparator` existe um método default estático que se chama `comparing`, que é uma fábrica, uma factory, de `Comparator`. Passamos o lambda para dizer qual será o critério de comparação desse `Comparator`:
 
-```
+```java
 palavras.sort(Comparator.comparing(s -> s.length()));
 ```
 
@@ -156,7 +156,7 @@ Veja a expressividade da linha, está escritor algo como "palavras ordene compar
 
 Quebrando em duas linhas para ver o que esse novo método faz exatamente:
 
-```
+```java
 Comparator<String> comparador = Comparator.comparing(s -> s.length());
 palavras.sort(comparador);
 ```
@@ -167,13 +167,13 @@ Dizemos que `Comparator.comparing` recebe um lambda, mas essa é uma expressão 
 
 É muito comum escrevermos lambdas curtos, que simplesmente invocam um único método. É o exemplo de `s -> s.length()`. Dada uma `String`, invoque e retorne o método `length`. Por esse motivo, há uma forma de escrever esse tipo de lambda de uma forma ainda mais reduzida. Em vez de fazer:
 
-```
+```java
 palavras.sort(Comparator.comparing(s -> s.length()));
 ```
 
 Fazemos uma referência ao método:
 
-```
+```java
 palavras.sort(Comparator.comparing(String::length));
 ```
 
@@ -183,13 +183,13 @@ São equivalentes nesse caso! Sim, é estranho ver `String::length` e dizer que 
 
 O `forEach` que recebe um `Consumer`:
 
-```
+```java
 palavras.forEach(s -> System.out.println(s));
 ```
 
 Dada uma `String`, invoque o `System.out.println` passando-a como argumento. É possível usar method reference aqui também! Queremos invocar o `println` de `System.out`:
 
-```
+```java
 palavras.forEach(System.out::println);
 ```
 
@@ -197,7 +197,7 @@ palavras.forEach(System.out::println);
 
 No Java 8 é possível, por exemplo, filtrar listas de forma interessante usando a interface [Stream](http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html). Porém, filtrar é só um dos métodos possíveis com `Stream` e para pegar um, você pode invocar através de um coleção, por exemplo: `cursos.stream()` e para filtrar os cursos que tem mais de 100 alunos:
 
-```
+```java
 cursos.stream().filter(c -> c.getAlunos() > 100);
 ```
 
@@ -207,7 +207,7 @@ Detalhe: as **modificações em um stream não modificam a coleção/objeto que 
 
 Outro método interessante é o `map()`, que podemos por exemplo, pegar só a quantidade de alunos por curso, desta forma:
 
-```
+```java
 cursos.stream()
     .filter(c -> c.getAlunos() > 100)
     .map(Curso::getAlunos);
@@ -219,7 +219,7 @@ Esse `map` irá retornar um `Stream<Integer>`.
 
 Há um cuidado a ser tomado: com os tipos primitivos. Quando fizemos o `map(Curso::getAlunos)`, recebemos de volta um `Stream<Integer>`, que acaba fazendo o autoboxing dos `int`s. Isto é, utilizará mais recursos da JVM. Claro que, se sua coleção é pequena, o impacto será irrisório. Mas é possível trabalhar só com `int`s, invocando o método `mapToInt`:
 
-```
+```java
 IntStream stream = cursos.stream()
    .filter(c -> c.getAlunos() > 100)
    .mapToInt(Curso::getAlunos);
@@ -227,7 +227,7 @@ IntStream stream = cursos.stream()
 
 Ele devolve um `IntStream`, que não vai gerar autoboxing e possui novos métodos específicos para trabalhar com inteiros. Um exemplo? A soma:
 
-```
+```java
 int soma = cursos.stream()
    .filter(c -> c.getAlunos() > 100)
    .mapToInt(Curso::getAlunos)
@@ -238,7 +238,7 @@ int soma = cursos.stream()
 
 [Optional](http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html) é uma importante nova classe do Java 8. É com ele que poderemos trabalhar de uma maneira mais organizada com possíveis valores `null`. Em vez de ficar comparando `if (algumaCoisa == null)`, o `Optional` já fornece uma série de métodos para nos ajudar nessas situações. Por exemplo, o `findAny()` do Stream retorna um `Optional` e podemos utilizar o método `ifPresent` para exibir o nome, assim: 
 
-```
+```java
 cursos.stream()
    .filter(c -> c.getAlunos() > 100)
    .findAny()
@@ -251,7 +251,7 @@ Invocar métodos no `stream` de uma coleção não altera o conteúdo da coleç�
 
 O método `collect` recebe um `Collector`, uma interface não tão trivial de se implementar. Podemos usar a classe `Collectors`, cheio de *factory methods* que ajudam na criação de coletores. Um dos coletores mais utilizados é o retornado por `Collectors.toList()`:
 
-```
+```java
 List<Curso> resultados = cursos.stream()
    .filter(c -> c.getAlunos() > 100)
    .collect(Collectors.toList());
@@ -259,7 +259,7 @@ List<Curso> resultados = cursos.stream()
 
 Podemos gerar mapas também. Por exemplo, um mapa que, dado o nome do curso, o valor atrelado é a quantidade de alunos. Um `Map<String, Integer>`. Utilizamos o `Collectors.toMap`. Ele recebe duas `Functions`. A primeira indica o que vai ser a chave, e a segunda o que será o valor:
 
-```
+```java
 Map mapa = cursos 
 .stream() 
 .filter(c -> c.getAlunos() > 100) 
@@ -278,13 +278,13 @@ Tome cuidado. Para streams pequenos, o custo de cuidado dessas threads e manipul
 
 Para representar uma data em Java nessa nova API utilizamos a classe `LocalDate`, presente no pacote `java.time`.
 
-```
+```java
 LocalDate hoje = LocalDate.now();
 ```
 
 Atráves do método `of` podemos definir uma data:
 
-```
+```java
 LocalDate evento = LocalDate.of(2023, Month.JUNE, 5);
 ```
 
@@ -292,7 +292,7 @@ LocalDate evento = LocalDate.of(2023, Month.JUNE, 5);
 
 Para saber a diferença entre duas datas podemos utilizar o método `between` da classe `Period`:
 
-```
+```java
 Period periodo = Period.between(hoje, evento);
 System.out.println(periodo);
 ```
@@ -307,7 +307,7 @@ Para formatar nossas datas podemos utilizar o `DateTimeFormatter`. Existem diver
 
 Para fazer isso basta usar o método `ofPattern`:
 
-```
+```java
 evento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 ```
 
@@ -315,7 +315,7 @@ evento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
 Para trabalhar com horas, minutos e segundos, utilizamos a classe `LocalDateTime`:
 
-```
+```java
 LocalDateTime agora = LocalDateTime.now();
 ```
 
@@ -325,7 +325,7 @@ LocalDateTime agora = LocalDateTime.now();
 
 Neste exemplo podemos usar o `YearMonth`, da seguinte forma:
 
-```
+```java
 YearMonth anoEMes = YearMonth.of(2015, Month.JANUARY);
 ```
 
@@ -333,7 +333,7 @@ Ou seja, existem diversas novas classes para expressar bem nossas intenções.
 
 Outro exemplo, para trabalharmos apenas com tempo podemos utilizar o `LocalTime`. Representar o horario do nosso intervalo de almoço, por exemplo, poderia ser feito com:
 
-```
+```java
 LocalTime intervalo = LocalTime.of(12, 30);
 ```
 

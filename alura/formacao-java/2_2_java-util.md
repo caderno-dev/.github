@@ -16,19 +16,19 @@
 
 **Cast implícito e explícito de primitivos**
 
-```
+```java
 int numero = 3;
 double valor = numero; // cast implícito
 ```
 
-```
+```java
 double valor = 3.56;
 int numero = (int) valor; // cast explícito 
 ```
 
 **Cast implícito e explícito de referências**
 
-```
+```java
 ContaCorrente cc1 = new ContaCorrente(22, 33);
 Conta conta = cc1; // cast implícito
 Conta conta2 = (Conta) cc1; // cast explícito, mas desnecessário

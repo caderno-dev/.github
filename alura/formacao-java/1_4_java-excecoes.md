@@ -18,7 +18,7 @@ As exceções mudam o fluxo do código. Se soluções não forem encontradas den
 
 Para **tratarmos** uma exceção, é preciso sinalizar para a máquina virtual que isso pode acontecer, por meio de um código específico (`try`). Assim, ela entenderá que deve **tentar** executar esse código, entre chaves (`{}`) e com mais cautela. Caso algo dê errado, o bloco `catch` é acionado para tratar o problema. Por exemplo:
 
-```
+```java
 try {
     int a = i / 0;
 } catch (ArithmeticException e) {
@@ -30,7 +30,7 @@ try {
 
 Podemos escrever mais de um catch desta forma:
 
-```
+```java
 try {
     System.out.println(1/0);
 } catch(ArithmeticException e) {
@@ -42,7 +42,7 @@ try {
 
 ou utilizando *pipes*:
 
-```
+```java
 try {
     System.out.println(1/0);
 } catch(ArithmeticException | NullPointerException e) {
@@ -83,7 +83,7 @@ Esse conceito de *checked* e *unchecked* é específico do mundo Java.
 
 O bloco `finally` sempre será executado, independente se der erro ou não. Geralmente, usado para fechar conexões.
 
-```
+```java
 Conexao conexao = null;
 try {
     conexao = new Conexao();
@@ -99,7 +99,7 @@ try {
 
 A partir do Java `1.7` é possível fazer uma simplicação para esses casos de fechamento de conexão, inicializando a variável dentro do `()` do `try`, desta forma:
 
-```
+```java
 try (Conexao conexao = new Conexao()) {
     conexao.leDados();
 }
@@ -107,7 +107,7 @@ try (Conexao conexao = new Conexao()) {
 
 Entretanto, para isso funcionar, a classe `Conexao` precisa implementar uma interface chamada `AutoCloseable`:
 
-```
+```java
 public class Conexao implements AutoCloseable() {
     // ...
 

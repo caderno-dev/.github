@@ -4,7 +4,7 @@
 
 - Na sintaxe da linguagem, a herança é expressada pela palavras `extends`. Por exemplo: 
 
-```
+```java
 public class Gerente extends Funcionario { 
     ...
 }

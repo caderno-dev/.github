@@ -27,7 +27,7 @@
 
 Exemplo:
 
-```
+```java
 /**
 * javadoc aqui
 */

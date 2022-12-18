@@ -10,7 +10,7 @@
 
 Exemplo de código: 
 
-```
+```java
 public class TesteLeitura {
 
   public static void main(String[] args) throws IOException {
@@ -28,7 +28,8 @@ public class TesteLeitura {
 ## Escrita com java.io
 
 Exemplo de código:
-```
+
+```java
 public class TesteEscrita {
 
   public static void main(String[] args) throws IOException {
@@ -70,7 +71,7 @@ Há ainda as classes que fazem a transição de um mundo para outro, como é o c
 
 Como os `Writers` e `Readers` foram criados após o `Stream`, eles têm funções muito similares. Inicialmente existia somente o `PrintStream`, mas como depois surgiu o mundo de `Writers`, viu-se a necessidade de criar um `PrintWriter`, este que não precisa utilizar um `Stream` internamente.
 
-```
+```java
 public class TesteEscrita {
 
   public static void main(String[] args) throws IOException {
@@ -102,7 +103,7 @@ Alguns detalhes da classe `System`:
 
 ## Usando java.util.Scanner
 
-```
+```java
 import java.util.Scanner;
 
 public class TesteLeitura {
@@ -154,7 +155,7 @@ Isto é possível graças a duas classes:
 
 A primeira para transformar o objeto em um fluxo de bits e bytes, e a segunda para fazer o caminho inverso.
 
-```
+```java
 public class TesteSerializacao {
 
   public static void main(String[] args) throws IOException,  ClassNotFoundException {
