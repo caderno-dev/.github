@@ -1,7 +1,5 @@
 # Cursos realizados
 
-Repositório que reúne as anotações e ou repositórios dos cursos realizados.
-
 ## Alura
 
 - 2017 - [Webservices REST com JAX-RS e Jersey](https://github.com/felipebbarbosa/curso_alura_webservices-rest-com-jaxrs-e-jersey) ✔
