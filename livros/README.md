@@ -14,13 +14,13 @@
 
 - **O Programador Pragmático:** De Aprendiz a Mestre *(Andrew Hunt, Dave Thomas)* 🥇
 
+- [**Orientação a Objetos e SOLID para Ninjas:** Projetando classes flexíveis *(Maurício Aniche)*](./orientacao-a-objetos-e-solid-para-ninjas.md)
+
 - **SEO Prático:** Seu site na primeira página das buscas *(Adriano Almeida)*
 
 ## 📖 Em andamento
 
 - **Código Limpo:** Habilidades Práticas do Agile Software *(Robert C. Martin)*
-
-- **Orientação a Objetos e SOLID para Ninjas:** Projetando classes flexíveis *(Maurício Aniche)* 
 
 ## ⏳ Na estante/kindle
 
