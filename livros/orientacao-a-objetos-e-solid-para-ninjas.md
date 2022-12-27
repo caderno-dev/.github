@@ -58,10 +58,71 @@ Classes coesas são mais fáceis de serem mantidas, reutilizadas e tendem a ter 
 
 ## 3. Acoplamento e o tal do DIP
 
+A frase máxima da Orientação a Objetos é **tenha classes que são muito coesas e pouco acopladas**. O grande problema do acoplamento é que uma mudança em qualquer uma das classes pode impactar em mudanças na classe principal. **A partir do momento em que uma classe possui muitas dependências, todas elas podem propagar poblemas para a classe principal**. A classe, quando possui muitas dependências, torna-se muito frágil, fácil de quebrar. Mas como é **impossível não ter acoplamento**, é preciso diferenciá-los.
 
+### Estabilidade de classes
+
+O tipo de "acoplamento bom" é quando a dependência é estável, por exemplo, a interface `List`. Ela possui muitas implementações que estão utilizadas em praticamente todos os sistemas Java. 
+
+Acoplamento é geralmente olhar quais classes de que uma determinada classe depende. Contar isso é importante para detectarmos classes muito acopladas. O outro lado, que é olhar quantas classes dependem de uma classe, nos ajuda a dizer se a classe é ou não estável.
+
+### Buscando por classes estáveis
+
+Interfaces são um bom caminho para isso. Afinal, interfaces são apenas contratos: elas não tem código que pode forçar uma mudança, e geralmente tem implementações dela, e isso faz com que o desenvolvedor pense duas vezes antes de mudar o contrato. A ideia de "programe voltado para interfaces" faz todo sentido. Além de ganhar flexibilidade - afinal, podemos ter várias implementações daquela interface -, a interface tende a ser estável.
+
+> **Interfaces coesas** são aquelas cujos comportamentos são simples e bem definidos.
+
+Alguns padrões de projeto ajudam você a desacoplar seus projetos de classe, como o caso do *Observer*, *Visitor* e *Factory*.
+
+### DIP - Dependency Inversion Principle
+
+A ideia é: **sempre que uma classe for depender de outra, ela deve depender sempre de outro módulo mais estável do que ela mesma**. 
+
+Lembre-se de que abstrações tendem a ser estáveis, e implementações instáveis. Se você está programando alguma classe qualquer com regras de negócio, e precisa depender de outro módulo, idealmente esse outro módulo deve ser uma abstração. Tente ao máximo não depender de outras implementações. 
+
+- Módulos de alto nível não devem depender de módulos de baixo nível. Ambos devem depender de abstrações.
+- Abstrações não devem depender de detalhes. Detalhes devem depender de abstrações.
+
+Isso é o que chamamos de *Depndency Inversion Principle*, o Princípio de Inversão de Dependência. Não confunda com "injeção" de dependência. Injeção de dependência é a ideia de você ter os parâmetros no construtor, e alguém, geralmente um framework, automaticamente injetar essas dependências para você. Na *inversão* de dependência, você está invertendo a maneira de você depender das coisas. Passa a depender agora de abstrações.
+
+> **Todas as classes devem ser estáveis?** Não! Se isso acontecesse, ou seja, todas nossas classes fossem estáveis ao máximo, não conseguiríamos mexer em nada!
+
+### Dependências lógicas
+
+Enxerger acoplamento entre classes é fácil, basta ver se uma depende da outra. Por exemplo, no código-fonte podemos ver a lista de `imports` daquela classe. Mas alguns desses acoplamentos não aparecem de forma clara no código. 
+
+Por exemplo, em uma aplicação web MVC, muitas alterações no *controller* são propagadas para determinadas JSPs. Esse tipo de acoplamento é o que chamamos de **acoplamento lógico**. Esse tipo de acoplamento pode ser perigoso, pois quando um muda, o outro precisa mudar junto. Ou seja, o acoplamento lógico pode nos indicar um mau projeto de classes, ou mesmo código que não está bem encapsulado.
 
 ## 4. Classes abertas e o tal do OCP
+
+Classes não coesas devem ter suas responsabilidades divididas em pequenas classes, e que classes devem tentar ao máximo se acoplar com classes que são estáveis, ou seja, mudam pouco.
+
+> **Perceba: a discussão o tempo inteiro é sobre como balancear entre acoplamento e coesão. Buscar esse equilíbrio é fundamental!**
+
+### OCP - Princípio do Aberto-Fechado
+
+Um outro conceito que nos ajuda a ter classes coesas e que evoluam mais fácil é pensar sempre em escrever classes que são "abertas para extensão", mas "fechadas para modificação" (*Open Closed Principle*). A ideia é que suas classes sejam abertas para extensão. Ou seja, estender o comportamento delas deve ser fácil. Mas, ao mesmo tempo, elas devem ser fechadas para alteração. Ou seja, ela não deve ser modificada (ter seu código alterado) o tempo todo.
+
+### Classes extensíveis
+
+Programar orientado a objetos é lidar com acoplamento, coesão, pensando em abstrações para nossos problemas. Quando se tem uma boa abstração, é fácil evoluir o sistema. Seu sistema deve evoluir por meio de novas implementações dessas abstrações, previamente pensadas, e não por meio de diversos `ifs` espalhados por todo o código.
+
+> **Ifs nunca mais? Abstrações sempre?** Códigos flexíveis são importantes, mas têm um custo agregado. Muitas vezes um simples `if` resolve o problema. Portanto, seja parcimonioso. Flexibilize código que realmente precise disso, e seja simples em códigos que podem ser simples.
+
+### A testabilidade agradece!
+
+A partir do momento em que a classe deixa clara todas as suas dependências, e possibilita a troca delas, criamos classes não só facilmente extensíveis, mas também altamente testáveis, pois conseguimos simular as dependências por meio de *mock objects*. Mocks são objetos que dublam outros objetos, simplesmente para facilitar a escrita dos testes.
+
+> *"Se está difícil de testar, é porque seu código pode ser melhorado"*. Um código fácil de ser testado é provavelmente um código bem projetado; já um código difícil de ser testado tem grandes chances de conter problemas de design.
+
+### Conclusão
+
+Classes abertas são aquelas que deixam explícitas as suas dependências. Dessa maneira, podemos mudar as implementações concretas que são passadas para ela a qualquer momento, e isso faz com que o resultado final da sua execução mude de acordo com as classes que foram passadas para ela. Ou seja, conseguimos mudar o comportamento da classe sem mudar o seu código.
+
 ## 5. O encapsulamento e a propagação de mudanças
+
+
+
 ## 6. Herança x composição e o tal do LSP
 ## 7. Interfaces magras e o tal do ISP
 ## 8. Consistência, objetinhos e objetões
