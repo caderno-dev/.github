@@ -121,7 +121,68 @@ Classes abertas são aquelas que deixam explícitas as suas dependências. Dessa
 
 ## 5. O encapsulamento e a propagação de mudanças
 
+Encapsulamento é o nome que damos à ideia de a classe esconder os detalhes de implementação, ou seja, **como** o método faz o trabalho dele. Isso tem dois ganhos. O primeiro é a facilidade para alterar a implementação. O segundo é que, se o código não está bem encapsulado, isso implica em termos a regra de negócio espalhada por lugares diferentes.
 
+### Intimidade inapropriada
+
+*Intimidade inapropriada* são os códigos que entendem mais do que deveriam sobre o comportamento de uma outra classe.
+
+### Tell, don't ask
+
+Um conhecido princípio de Orientação a Objetos é o *Tell, Don't Ask*, ou seja, "Diga, não pergunte". Quando temos códigos que perguntam uma coisa para um objeto, para então tomar uma decisão, é um código que não está seguindo esse princípio. A ideia é que devemos sempre dizer ao objeto o que ele tem de fazer, e não primeiro perguntar algo a ele, para depois decidir.
+
+### Procurando por encapsulamentos problemáticos
+
+Perceber se um código está bem encapsulado ou não, não é tão difícil. Por exemplo, se pergunte:
+
+- **O que esse método faz?** Provavelmente sua resposta será: eu sei o que o método faz pelo nome dele, calcula o valor do imposto. É um nome bem semântico, deixa claro que ele faz. Se conseguiu responder essa pergunta, está no bom caminho.
+
+- A próxima pergunta é: **Como ele faz isso?** Sua resposta provavelmente é: se eu olhar só para esse código, não dá para responder. Isso é uma coisa boa. Isso é encapsulamento.
+
+### A famosa Lei de Demeter
+
+Ela sugere que evitemos o uso de invocações em cadeia. Por exemplo, dado o código:
+
+```java
+public void algumMetodo() {
+    Fatura fatura = pegaFaturaDeAlgumLugar();
+    fatura.getCliente().marcaComoInadimplente();
+}
+```
+
+Uma melhor forma seria fazer assim:
+
+```java
+public void algumMetodo() {
+    Fatura fatura = pegaFaturaDeAlgumLugar();
+    fatura.marcaComoInadimplente();
+}
+```
+
+Assim a própria fatura chamaria o método `cliente.marcaComoInadimplente();` dentro do método dela.
+Desta forma, se classe `Cliente` mudar, a classe `Fatura` vai parar de funcionar. Mas agora mexeremos em um único lugar. Lembre-se de que a ideia é sempre diminuir pontos de mudança.
+
+### Getters e setters para tudo, não!
+
+Antes de criar *setters*, pense se eles não gerarão problemas de encapsulamento no futuro. É preferível você fornecer comportamentos que alterem o valor do atributo.
+
+O *getter* é menos prejudicial, uma vez que ele apenas devolve a informação para o usuário. Mas alguns deles podem ser perigosos também. Por exemplo, o *getter* devolver uma lista, que consequentemente pode ser alterada e manipulada. Uma boa ideia é fazer que seus *getters* sempre devolvam cópias dos objetos originais, ou mesmo bloqueiem alterações de alguma forma. Para esse problema de listas em particular, podemos abusar da API da linguagem Java, e devolver uma lista não modificável:
+
+```java
+public List<Pagamento> getPagamentos() {
+    return Collections.unmodifiablelist(pagamentos);
+}
+```
+
+### Modelos anêmicos
+
+Evite também os chamados modelos anêmicos, muito comuns no passado da JavaEE. Muitos sistemas têm classes que, ou têm atributos, ou têm métodos. Nunca os dois juntos. Ou seja, temos código procedural em linguagem OO novamente.
+
+O interesante é que se você analisar com cuidado, alguns padrões de projeto separam dados de comportamento. É o caso de *State*, *Strategy*, e muitos outros padrões. Esses são casos particulares, em que optamos por desacoplá-lo para ganhar em flexibilidade. São decisões pontuais ao longo do sistema. Não é o caso de sistemas anêmicos, onde isso acontece o tempo todo.
+
+### Conclusão
+
+Esconda os detalhes da implementação, e diminua pontos de mudança. É isso que tornará seu sistema fácil de ser mantido.
 
 ## 6. Herança x composição e o tal do LSP
 ## 7. Interfaces magras e o tal do ISP
