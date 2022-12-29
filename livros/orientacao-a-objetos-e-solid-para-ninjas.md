@@ -185,6 +185,43 @@ O interesante é que se você analisar com cuidado, alguns padrões de projeto s
 Esconda os detalhes da implementação, e diminua pontos de mudança. É isso que tornará seu sistema fácil de ser mantido.
 
 ## 6. Herança x composição e o tal do LSP
+
+Já dizia Joshua Bloch: *"Crie suas classes pensando em herança, ou então proíba-a"*. Herança é sempre um assunto delicado. No começo das linguagens orientadas a objeto, a herança era a funcionalidade usada para vender a ideia. Afina, reúso de código de maneira fácil, quem não queria? Mas, na prática, utilizar herança pode não ser tão simples.
+
+Note que as **classes filhas precisam respeitar os contratos definidos pela classe pai.** Mudar esses contratos pode ser perigoso.
+
+### LSP - Liskov Substitutive Principle
+
+Para usar herança de maneira adequada, o desenvolvedor deve pensar o tempo todo nas pré e pós-condições que a classe pai definiu.
+
+Toda classe ou método tem as suas pré e pós-condições. Por précondições, entenda os dados que chegam nela. Quais são as restrições iniciais para que aquele método funcione corretamente? Por exemplo, o método `deposita()` deve receber um inteiro maior que zero. Se uma classe filha mudar essa precondição para somente números maiores que 10, por exemplo, poderemos ter problemas.
+
+A pós-condição é o que aquele comportamento devolve? Por exemplo, o método `rende()` não devolve nada e não lança exceção. Mas se uma das classes filhas lançar um exceção neste método. Problema.
+
+Podemos mudar as pré e pós-condições, mas com regras. A classe filho só pode afrouxar a precondição. Já a pós-condição é ao contrário, só pode ser apertada, ela nunca pode afrouxar. É sobre isso que o Princípio de Substituição de Liskov discute. Ao herdar, você deve sempre lembrar do contrato estabelecido pelo pai.
+
+### Acoplamento entre a classe pai e a classe filho
+
+É fácil notar que a classe filho é totalmente acoplada à classe pai. Afinal, qualquer mudança no pai impacta no filho. Sendo assim, é importante tentar ao máximo reduzir o acoplamento entre a classe pai e a classe filho. Podemos também usar o termo encapsulamento. Afinal, se a classe filho conhece demais da implementação da classe pai, é porque ela não encapsulou bem seus detalhes de implementação.
+
+Além disso, uma boa maneira para diminuir a chance de quebrar o encapsulamento é evitar o uso de `protected`. 
+
+### Favoreça a composição
+
+Usar herança é sim complicado, e o seu mau uso pode trazer problemas. É por isso que muitos desenvolvedores sugerem o uso de composição.
+
+A composição tem vantagens. A relação da classe principal com a classe dependida não é tão íntima quanto a relação existente entre classes pai e filho, portanto, quebrar o encapsulamento é mais difícil. A composição nos dá flexibilidade.
+
+Escrever testes automatizados também é mais fácil. Mockar objetos e comportamentos e passá-los para classes que as usam para compor o comportamento é natural; com herança, muito mais difícil.
+
+### Quando usar herança então?
+
+Herança deve ser usada quando existe realmente a relação de X **é um** Y. Por exemplo, `Gerente` é um `Funcionário`, ou `ICMS` é um `Imposto`. Não use herança caso a relação seja de composição, ou seja, X **tem um** Y, ou X **faz uso de** Y.
+
+Nada também o impede de usar herança e composição.
+
+Enfim, não descarte herança, apenas favoreça a composição.
+
 ## 7. Interfaces magras e o tal do ISP
 ## 8. Consistência, objetinhos e objetões
 ## 9. Maus cheiros de design
