@@ -223,7 +223,102 @@ Nada também o impede de usar herança e composição.
 Enfim, não descarte herança, apenas favoreça a composição.
 
 ## 7. Interfaces magras e o tal do ISP
+
+Se uma classe não é coesa, dividimo-la em duas ou mais classes; se uma interface não é coesa, também a dividimos em duas ou mais interfaces. Desta forma, cada classe filha implementa quais interfaces forem necessárias.
+
+Portanto, interfaces coesas são aquelas que possuem também apenas uma única responsabilidade. Quando coesas, essas interfaces possibilitam um maior reúso, tender a ser mais estáveis e impedem "gambiarras" de acontecerem.
+
+### Fábricas ou injeção de dependência?
+
+Mas se nossas classes devem receber suas dependências pelo construtor, e assim ganhar em flexibilidade, quem instancia essas classes? Temos duas opções: usar algum framework de injeção de dependência, como Spring Guice, entre outros, ou utilizar fábricas, isto é, classes cuja responsabilidade é instanciar outras classes. 
+
+A partir do momento em que você opta por usar uma fábrica, ela torna-se uma decisão importante do projeto. Você deve evitar instanciar a classe diretamente, e sempre usar a fábrica. Se sua linguagem suportar, você pode até usar os modificadores de visibilidade para fazer com que a classe não possa se instanciada por outras classes, que não sua fábrica. E, se precisa ser ainda mais flexível, você pode fazer as classes ao redor do sistema receber a fábrica no construtor, em vez da classe concreta. Isso lhe possibilitará trocar inclusive a maneira na qual o objeto é criado.
+
+Já frameworks de injeção de dependência também facilitam bastante. Ainda mais hoje, onde todos eles são de fácil configuração, e são bem flexíveis. As anotações do CDI, especificação Java para injeção de dependência, por exemplo, são simples.
+
 ## 8. Consistência, objetinhos e objetões
+
+### Construtores ricos
+
+Objetos em estado inválido são bastante problemáticos. Por estado inválido, entenda-se aquele objeto cujos atributos possuem valores não aceitáveis. Um pedido sem cliente, ou um cliente sem nome, são exemplos de objetos inválidos.
+
+Garantir a integridade do seu estado é responsabilidade do próprio objeto. Construtores são uma ótima maneira de se resolver esse problema. Se a classe possui atributos sem as quais ela não pode viver, eles devem ser pedidos no construtor.
+
+Se você tem objetos que são complicados de serem criados e um simples construtor não resolve, você pode apelar para padrões de pojeto criacionais, como é o caso do *Builder* ou da *Factory*, que são nada mais do que classes que criam o objeto de que você precisa, de forma a garantir que seu estado esteja consistente.
+
+> **Construtores para atender frameworks** - Alguns frameworks não lidam bem com a ideia de a classe ter constructores ricos e nenhum construtor padrão. O Hibernate, é um exemplo. Nesse caso, a sugestão é que você tenha construtores ricos, e também um construtor padrão, com a menor visibilidade possível, marcado como *deprecated*. Dessa forma, o framework conseguirá utilizá-lo, mas os desenvolvedores são avisados de seu uso deve ser evitado.
+
+### Validando dados
+
+É responsabilidade dos sistemas validar os dados. Existem dois tipos diferentes: primeiro, aquele conjunto de validações para garantir que o tipo de dado enviado pelo usuário seja válido. Ou seja, o campo "idade" passado pelo usuário é um número, o campo "e-mail" é um e-mail, e assim por diante. Em segundo lugar, validações de negócio, ou seja, que determinado imposto precisa ser maior que 1%, ou que pessoas físicas precisam de um CPF.
+
+Para o primeiro caso, a boa ideia é mais natural. Sempre que você recebe dados do usuário, isso é feito em alguma camada intermediária. Em uma aplicação web, por exemplo, você os recebe no *Controller*. Idealmente, esse tipo de validação deve ser feito lá. É na verdade para isso que servem os controladores: para fazer a ponte entre o mundo do usuário, onde ele interage com formulários etc., e o mundo do domínio, onde as regras vivem.
+
+Esse tipo de discussão é bastante comum em arquiteturas hexagonais. Projetistas que gostam dessa linha de raciocínio preferem deixar toda essa validação simples de dados nos "adaptadores". Já as regras de validação que envolvem negócio, dentro das "portas".
+
+O segundo caso é mais complicado. Podemos, por exemplo, tratar os dados dentro da própria entidade, seja no próprio construtor (que dependendo do caso não é elegante) ou então prover um método que diz se o objeto é válido ou não. Uma implementação intermediária seria a criação de um *builder* para a classe. A vantagem do builder é que você garante que a classe não será criada com um valor inválido e, ao mesmo tempo, não coloca o código de validação dentro da própria classe de domínio.
+
+### Teorema do bom vizinho e nulos para lá e para cá
+
+Outro grande problema de aplicações é tratar o dado que veio de alguma outra classe cliente. Quantas vezes você já não fez algum tipo de *if* para garantir que o objeto recebido não era nulo? Mas a pergunta é: o que seria do mundo se ninguém passasse nulo para sua classe? Veja que você, classe, não precisaria se preocupar mais em garantir que o objeto recebido não é nulo. Essa é a ideia do teorema do bom vizinho. Bom vizinho no sentido de que você é educado e não passará dados inválidos para a outra classe.
+
+Generalize a ideia. Tente ser amigável com a classe que você vai consumir. Faça bom uso da interface pública que ela provê. Use sempre a sobrecarga correta; muitas vezes a classe lhe dá a sobrecarga sem aquele parâmetro que você não tem em mãos naquele momento. Se você tem dados que realmente podem ser nulos, pense em usar *Null Objects*, ou algo parecido.
+
+### Tiny Types é uma boa ideia?
+
+Por que não criamos um tipo particular para representar cada uma dessas pequenas responsabilidades que aparecem em nossos sistemas, como CPF, telefone ou data nascimento? 
+
+Muitas vezes uma string é suficiente para representar um telefone. Mas o que ganharíamos se tivéssemos uma classe `Telefone`, simples e pequena?
+
+```java
+class Telefone {
+    private String telefone;
+
+    public Telefone(String telefone) {
+        // alguma validação
+        this.telefone = telefone;
+    }
+
+    public String get() { ... }
+}
+```
+
+Classes como essa, que representam uma pequena parte do sistema e praticamente não tem comportamentos, são conhecidas por **tiny types**. Imagine um sistema onde todos os tipos são no mínimo *tiny types*, construir um objeto seria algo como o seguinte:
+
+```java
+// sem tiny types, você precisa inferir o que significa aquela string
+Aluno aluno = new Aluno(
+    "Felipe", "felipe@felipe.com.br", "Rua do Felipe", "Americana"
+);
+
+// com tiny types, o próprio tipo deixa isso claro.
+Aluno aluno = new Aluno(
+    new Nome("Felipe"),
+    new Email("felipe@felipe.com.br"),
+    new Endereco("Rua do Felipe", "Americana")
+);
+```
+
+Cada pequeno tipo pode fazer sua própria validação e, dessa maneira, garantir que todo o conteúdo seja válido. Reutilizar também fica fácil.
+
+A desvantagem é justamente a quantidade de código a mais que existirá no sistema. Em alguns contextos, uma simples `String` é suficiente para representar um e-mail.
+
+### DTOs do bem
+
+DTOs, como o próprio nome diz, são *Data Transfer Objects*. São objetos que devem ser usados para transmitir informações de um lado para outro. Eles geralmente não possuem comportamentos, são apenas classes com atributos, ou seja, não parece orientação a objetos.
+
+Mas não tenha medo de criar DTOs que representem pedaços do seu sistema. Facilite a transferência de dados entre suas camadas; aumente a semântica deles. Lembre-se de que o problema não é ter DTOs, mas sim só ter DTOs.
+
+### Imutabilidade x mutabilidade
+
+O mais comum são classes cujo o estado é mutável. Mas, se o desenvolvedor não estiver atento, é fácil cometer um deslize e trabalhar com uma variável cujo valor atual não sabemos bem. A classe `Calendar` do Java, por exemplo, quando você adiciona alguns dias nela, muda seu estado interno para representar a nova data. Isso pode complicar a vida do desenvolvedor.
+
+Um outro exemplo comum, são classes de domínio que devolvem listas internas, onde você pode manipular sem passar pelas regras de negócio de um item da lista.
+
+Muitos desenvolvedores defendem classes imutáveis, ou seja, classes que, após instanciadas, não mudam nunca seu estado interno. Você não tem mais o problema de alguma outra classe perdida no sistema faça alguma alteração que você não esteja esperando para sua lógica atual. Além disso, paralelizar fica mais fácil, pois não há escrita concorrente nesses objetos.
+
+Escrever uma classe imutável não é complicado. Basta evitar o uso de *setters*, por exemplo. Ou, se você precisar dar um método que modifica o conteúdo do objeto, esse objeto deve devolver uma nova instância dessa classe, com o novo valor.
+
 ## 9. Maus cheiros de design
 ## 10. Métricas de código
 
