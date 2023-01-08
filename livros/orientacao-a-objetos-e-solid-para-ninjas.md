@@ -320,5 +320,51 @@ Muitos desenvolvedores defendem classes imutáveis, ou seja, classes que, após 
 Escrever uma classe imutável não é complicado. Basta evitar o uso de *setters*, por exemplo. Ou, se você precisar dar um método que modifica o conteúdo do objeto, esse objeto deve devolver uma nova instância dessa classe, com o novo valor.
 
 ## 9. Maus cheiros de design
+
+- **Refused bequest** é o nome dado para quando herdamos de uma classe, mas não queremos fazer uso de alguns dos métodos herdados.
+- **Feature envy** é o nome que damos para quando um método está mais interessado em outro objeto do que no objeto em que ele está inserido. Esse é o tipo código procedural. Módulos que fazem uso intenso de dados que estão em outros lugares.
+- **Intimidade inapropriada** é quando uma classe conhece detalhes internos de outra por falta de encapsulamento.
+- **God class** é aquela classe que controla muitos outros objetos do sistema. Classes assim tendem a crescer mais do que deveriam e passam a "fazer tudo". São altamente acopladas.
+- **Divergent changes** é o nome do mau cheiro para quando a classe não é coesa, e sofre alterações constantes, devido às suas diversas responsabilidades. Classes não coesas possuem baixo reúso, apresentam mais bugs e são mais complexas do que deveriam.
+- **Shotgun surgery** esse mau cheiro é conhecido para quando você tem que fazer alguma alteração no código e precisa modificar 20 arquivos de uma só vez. Isso é geralmente típico de sistemas cujas abstrações foram mal boladas.
+
 ## 10. Métricas de código
+
+A grande questão é: **como fazer para detectar possíveis problemas em nosso design antes que eles se tornem problema de verdade?** É impossível dizer, com 100% de certeza, se uma classe tem problemas de coesão ou de acoplamento. Mas podemos criar heurísticas através de umas métricas.
+
+- **Complexidade ciclomática**: Quando um método é complexo? Geralmente quando ele tem muita linha de código ou quando ele tem muitos possíveis diferentes caminhos a serem executados. Quanto maior esse número de caminhos, mais complexo é. Esse número também é conhecido como *Número de McCabe*.
+- **Tamanho de métodos**
+- **Coesão e a LCOM** *(Lack of Cohesion of Methods)*: Se uma classe não for coesa, ela provavelmente contém um conjunto de atributos que são manipulados apenas por alguns métodos, e outro conjunto de atributos que são manipulados apenas por outros métodos. Ou seja, é como se a classe estive dividida em 2, dentro dela mesmo. É isso que essa métrica contabiliza. Existem várias versões dessa métrica e a mais aceita pela comunidade é a LCOM HS (de Handerson e Sellers).
+- **Acoplamento aferente e eferente**: Quando uma classe depende de diversas outras classes, dizemos que esse é o **acomplamento eferente**. Quanto maior, mais frágil ela é. O outro lado do acoplamento é o que chamamos de **acoplamento aferente**. Ele mede quantas classes dependem da classe principal.
+- **Má nomenclatura**
+
+### Como avaliar os números encontrados?
+
+Existem algumas abordagens para encontrar os números limites:
+
+- Usar algum número mágico.
+- Criar o seu número mágico.
+
+Você pode também avaliar o sistema como um todo, em um nível mais alto que o nível de classes, agrupando os números calculados para as classes. Se perceber que 90% das classes estão dentro, o sistema é ótimo. Se for apenas 70%, é apenas bom, e assim por diante.
+
+### Ferramentas
+
+- **Sonar**: um plugin para integração contínua, que calcula todas as métricas mencionadas, e mostra a evolução delas ao longo do tempo. Ela é disparada automaticamente cada vez que o código é commitado.
+- **Eclipse Metrics**: plugin do Eclipse, mas essa precisa ser executada manualmente.
+- **JDepend/NDepend**
+- **JavaNCSS**
+
+## Mais sobre
+
+Livros recomendados:
+
+- *Agile Principles, Patterns and Pratices*, do Robert Martin.
+- *Growing Object-Oriented Software, Guides by Tests*, do Steve Freeman e Nat Pryce.
+- *Design Patterns*, da Gang of Four.
+- *Refactoring to Patterns*, do Joshua Kerievsky.
+
+
+
+
+
 
