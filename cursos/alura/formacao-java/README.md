@@ -17,12 +17,12 @@
 ## 3 - Aprofundar em Java moderno e TDD
 
 - [Java moderno: Tire proveito dos novos recursos do Java 8](./3_1_java_8.md) ✔
-- TDD e Java: Testes automatizados com JUnit
+- [TDD e Java: Testes automatizados com JUnit](./3_2_tdd-java.md) ✔
 - [Extra: Novidades do Java 9 e para frente](./3_3_java_9.md) ✔
 
-## 4 - Hora de praticar
+## Certificado de conclusão
 
-- 7days of Code | Alura
+- 🎖[Certificado](./docs/certificado.pdf)
 
 ---
 
