@@ -3,6 +3,9 @@
 Repositórios usados no curso:
 
 - [Boilerplate](https://github.com/felipebbarbosa/curso_udemy_react-avancado_boilerplate)
+- [Landing Page](https://github.com/felipebbarbosa/curso_udemy_react-avancado_landing-page)
+- [Landing Page API](https://github.com/felipebbarbosa/curso_udemy_react-avancado_landing-page-api)
+- [API](https://github.com/felipebbarbosa/curso_udemy_react-avancado_api)
 
 ## Sumário
 
@@ -19,7 +22,7 @@ Repositórios usados no curso:
 - [Seção 6 (extra): Trabalhando com GraphQL no Frontend](./s6m2_graphql-frontend.md)
 - Seção 7 (extra): Colocando a Landing Page em produção
 - Seção 8 (extra): Strapi - Atualizações e Migrações
-- Seção 9: Criando a API para o E-commerce (Won Games)
+- [Seção 9: Criando a API para o E-commerce (Won Games)](./s9m2_criando-api.md)
 - Seção 10: Customizando o Admin do Strapi para a Won Games
 - Seção 11: Criando e baixando plugins no Strapi
 - Seção 12: Criando Scrapper de dados para popular a API da Won Games

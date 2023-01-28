@@ -27,7 +27,7 @@ export default client
 
 Para uma melhor organização, crie a pasta `queries` dentro da pasta `graphql` e depois crie o arquivo `getLandingPage.ts` da primeira query com seguinte conteúdo:
 
-```
+```jsx
 const GET_LANDING_PAGE = /* GraphQL */ `
   query GET_LANDING_PAGE {
     landingPage {
@@ -51,7 +51,7 @@ Existem [algumas opções de *fetching*](https://nextjs.org/docs/basic-features/
 
 No caso da nossa aplicação, será utilizado o `getStaticProps`, desta forma no arquivo `src/pages/index.tsx`:
 
-```
+```jsx
 export const getStaticProps: GetStaticProps = async () => {
   const { landingPage } = await client.request(GET_LANDING_PAGE)
 
@@ -67,7 +67,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 Para passar os dados para o componente é necessário criar a *"tipagem"* dos dados. Crie uma pasta chamada `types` dentro do `src` com o arquivo `api.ts`:
 
-```
+```jsx
 export type LogoProps = {
   alternativeText: string
   url: string

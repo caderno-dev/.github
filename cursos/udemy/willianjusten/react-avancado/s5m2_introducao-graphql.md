@@ -31,7 +31,7 @@ query GET_AUTHOR($id: ID!) {
 >**Obs.:** A "!" no tipo do parâmetro (ID!) obriga o usuário a preencher.
 
 Aí na **QUERY VARIABLES** você terá que inputar os dados:
-```
+```json
 {
   "id": 4
 }
@@ -96,7 +96,7 @@ mutation UPDATE_AUTHOR($id: ID!, $data: editAuthorInput) {
 
 Aí na **QUERY VARIABLES** você terá que inputar os dados:
 
-```
+```json
 {
   "id": 4,
   "data": {

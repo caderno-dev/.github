@@ -47,7 +47,7 @@ No terminal do Postgress:
 
 Criar senha e dar permissão ao usuário:
 
-```
+```sql
 alter user strapi with encrypted password 'strapi123';
 grant all privileges on database strapi to strapi;
 ```
@@ -74,7 +74,7 @@ No terminal do Postgress:
 
 Criar senha e dar permissão ao usuário:
 
-```
+```sql
 alter user strapi with encrypted password 'strapi123';
 grant all privileges on database strapi to strapi;
 ```
