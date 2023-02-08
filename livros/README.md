@@ -2,60 +2,60 @@
 
 ##  ✔ Concluídos
 
-- *14 Hábitos de Desenvolvedores Altamente Produtivos*, do Zeno Rocha.
+- **_14 Hábitos de Desenvolvedores Altamente Produtivos_**, do Zeno Rocha.
 
-- *Coletânea Front-end: Uma antologia da comunidade front-end brasileira*, de vários autores.
+- **_Coletânea Front-end: Uma antologia da comunidade front-end brasileira_**, de vários autores.
 
-- *Guia do mestre programador: Pensando como pirata, evoluindo como jedi*, do Carlos Bueno.
+- **_Guia do mestre programador: Pensando como pirata, evoluindo como jedi_**, do Carlos Bueno.
 
-- *O Mantra da Produtividade: Aprimore sua produtividade com técnicas de foco e organização pessoal*, do Dionatan Moura.
+- **_O Mantra da Produtividade: Aprimore sua produtividade com técnicas de foco e organização pessoal_**, do Dionatan Moura.
 
-- *O Programador Apaixonado: Construindo uma carreira notável em desenvolvimento de software*, do Chad Fowler.
+- **_O Programador Apaixonado: Construindo uma carreira notável em desenvolvimento de software_**, do Chad Fowler.
 
-- *O Programador Pragmático: De Aprendiz a Mestre*, do Andrew Hunt e Dave Thomas. 🥇
+- **_O Programador Pragmático: De Aprendiz a Mestre_**, do Andrew Hunt e Dave Thomas. 🥇
 
-- [*Orientação a Objetos e SOLID para Ninjas: Projetando classes flexíveis*](./orientacao-a-objetos-e-solid-para-ninjas.md), do Maurício Aniche. 🥇
+- [**_Orientação a Objetos e SOLID para Ninjas: Projetando classes flexíveis_**](./orientacao-a-objetos-e-solid-para-ninjas.md), do Maurício Aniche. 🥇
 
-- *SEO Prático: Seu site na primeira página das buscas*, do Adriano Almeida.
+- **_SEO Prático: Seu site na primeira página das buscas_**, do Adriano Almeida.
 
 > 🥇 Livros recomendados!
 
 ## 📖 Em andamento
 
-- *Código Limpo: Habilidades Práticas do Agile Software*, do Robert C. Martin.
+- **_Java Efetivo: As Melhores Práticas para a Plataforma Java (3ª Edição)_**, do Joshua Bloch.
 
 ## ⏳ Na estante/kindle
 
-- *Apache Kafka e Spring Boot: Comunicação assíncrona entre microsserviços*, do Eduardo Felipe Zambom Santana. 
+- **_Apache Kafka e Spring Boot: Comunicação assíncrona entre microsserviços_**, do Eduardo Felipe Zambom Santana. 
 
-- *Aplicações Java para a web com JSF e JPA*, do Gilliard Cordeiro.
+- **_Aplicações Java para a web com JSF e JPA_**, do Gilliard Cordeiro.
 
-- *Arquitetura Limpa: O Guia do Artesão para Estrutura e Design de Software*, do Robert C. Martin.
+- **_Arquitetura Limpa: O Guia do Artesão para Estrutura e Design de Software_**, do Robert C. Martin.
 
-- *Back-end Java: Microsserviços, Spring Boot e Kubernets*, do Eduardo Felipe Zambom Santana.
+- **_Back-end Java: Microsserviços, Spring Boot e Kubernets_**, do Eduardo Felipe Zambom Santana.
 
-- *Como ser um programador melhor: Um manual para programadores que se importam com código*, do Pete Goodliffe.
+- **_Código Limpo: Habilidades Práticas do Agile Software_**, do Robert C. Martin.
 
-- *Descontruindo a web: As tecnologias por trás de uma requisição*, do Willian Molinari.
+- **_Como ser um programador melhor: Um manual para programadores que se importam com código_**, do Pete Goodliffe.
 
-- *DevOps na prática: entrega de software confiável e automatizada*, do Danilo Sato.
+- **_Descontruindo a web: As tecnologias por trás de uma requisição_**, do Willian Molinari.
 
-- *Fragmentos de um programador: Artigos e insights da carreira de um profissional*, do Phil Calçado.
+- **_DevOps na prática: entrega de software confiável e automatizada_**, do Danilo Sato.
 
-- *Introdução à arquitetura e design de software: Uma visão sobre a plataforma Java*, do Paulo Silveira, Guilherme Silveira, Sérgio Lopes, Guilherme Moreira, Nico Steppat e Fabio Kung.
+- **_Fragmentos de um programador: Artigos e insights da carreira de um profissional_**, do Phil Calçado.
 
-- *Java 8 Prático: Lambdas, Streams e novos recursos da linguagem*, do Paulo Silveira, Rodrigo Turini.
+- **_Introdução à arquitetura e design de software: Uma visão sobre a plataforma Java_**, do Paulo Silveira, Guilherme Silveira, Sérgio Lopes, Guilherme Moreira, Nico Steppat e Fabio Kung.
 
-- *Java Efetivo: As Melhores Práticas para a Plataforma Java (3ª Edição)*, do Joshua Bloch.
+- **_Java 8 Prático: Lambdas, Streams e novos recursos da linguagem_**, do Paulo Silveira, Rodrigo Turini.
 
-- *O universo da programação: Um guia de carreira em desenvolvimento de software*, do William Oliveira.
+- **_O universo da programação: Um guia de carreira em desenvolvimento de software_**, do William Oliveira.
 
-- *Padrões de Projeto: Soluções reutilizáveis de software orientados a objetos*, do Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides.
+- **_Padrões de Projeto: Soluções reutilizáveis de software orientados a objetos_**, do Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides.
 
-- *Refatoração: Aperfeiçoando o design de códigos existentes (2ª Edição)*, do Martin Fowler.
+- **_Refatoração: Aperfeiçoando o design de códigos existentes (2ª Edição)_**, do Martin Fowler.
 
-- *Spring MVC: Domine o principal framework web Java*, do Alberto Souza.
+- **_Spring MVC: Domine o principal framework web Java_**, do Alberto Souza.
 
-- *Vire o jogo com Spring Framework*, do Henrique Lobo Weissmann.
+- **_Vire o jogo com Spring Framework_**, do Henrique Lobo Weissmann.
 
 
