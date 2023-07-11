@@ -29,7 +29,7 @@ Repositórios usados no curso:
 
 ### Módulo 3
 
-- Seção 13: Iniciando o projeto da Won e criando primeiros fundações
+- [Seção 13: Iniciando o projeto da Won e criando primeiros fundações](./s12m3_iniciando-projeto-won.md)
 - Seção 14: Criando primeiro componente Logo (SVG + React)
 - Seção 15: Criando componente primitivos Heading, Buttons e helper responsivo
 - Seção 16: Criando um menu completo com TDD e acessibilidade
