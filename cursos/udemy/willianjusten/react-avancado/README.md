@@ -23,7 +23,7 @@ Repositórios usados no curso:
 - Seção 7 (extra): Colocando a Landing Page em produção
 - Seção 8 (extra): Strapi - Atualizações e Migrações
 - [Seção 9: Criando a API para o E-commerce (Won Games)](./s9m2_criando-api.md)
-- Seção 10: Customizando o Admin do Strapi para a Won Games
+- [Seção 10: Customizando o Admin do Strapi para a Won Games](./s10m2_customizando-admin.md)
 - Seção 11: Criando e baixando plugins no Strapi
 - Seção 12: Criando Scrapper de dados para popular a API da Won Games
 

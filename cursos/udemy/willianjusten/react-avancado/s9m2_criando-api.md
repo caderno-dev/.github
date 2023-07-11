@@ -37,7 +37,7 @@ yarn create strapi-app api
 E as respostas das perguntas:
 
 - Choose your installation type: `Custom (manual settings)`
-- Choose your preferred language: `TypeScript`
+- Choose your preferred language: `JavaScript`
 - Choose your default database client: `postgres`
 - Database name: `wongames`
 - Host: `127.0.0.1`
@@ -98,4 +98,34 @@ No Strapi Admin, `Content-Types Builder > Collection Type > Create new collectio
   - `rating` - Enumeration, Values = FREE, pegi3, pegi7, pegi12, pegi16, pegi18
   - `cover` - Media, Single media
   - `gallery` - Media, Multiple media
+- Relations:
+  - `categories` - Many to many
+  - `developers` - Many to many
+  - `platforms` - Many to many
+  - `publisher` - Many to one
 
+## Configurando o plugin do GraphQL
+
+No Marketplace procure por **GraphQL** e copie o comando de instalação:
+
+```
+yarn add @strapi/plugin-graphql
+```
+
+## Configurando o editor para CKEditor
+
+Para instalar o plugin:
+
+```
+yarn add strapi-plugin-ckeditor5
+```
+
+Depois rode o comando:
+
+```
+yarn build 
+```
+
+---
+
+[Voltar](./README.md)
