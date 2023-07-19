@@ -148,6 +148,145 @@ export default {
 }
 ```
 
+## Configurando ThemeProvider e suporte do TypeScript com declaration file
+
+Para o utilizar o tema (`theme.ts`) criado no tópico anterior com o **Styled Components** é preciso usar o **ThemeProvider** ([documentação](https://styled-components.com/docs/api#themeprovider)), que é um *component helper* que injeta os estilos em todos componentes.
+
+Ele precisa ficar na camada mais externa da aplicação, no caso do **Next.js**, essa camada fica no arquivo `.src/pages/_app.tsx` ([documentação](https://nextjs.org/docs/pages/building-your-application/routing/custom-app)), desta forma:
+
+```TypeScript
+import { AppProps } from 'next/app'
+import Head from 'next/head'
+import { ThemeProvider } from 'styled-components'
+
+import GlobalStyles from 'styles/global'
+import theme from 'styles/theme'
+
+function App({ Component, pageProps }: AppProps) {
+  return (
+    <ThemeProvider theme={theme}>
+      <Head>
+        <title>React Avançado - Boilerplate</title>
+        <link rel="shortcut icon" href="/img/icon-512.png" />
+        <link rel="apple-touch-icon" href="/img/icon-512.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta
+          name="description"
+          content="A simple project starter to work with TypeScript, React, NextJS and Styled Components"
+        />
+      </Head>
+      <GlobalStyles />
+      <Component {...pageProps} />
+    </ThemeProvider>
+  )
+}
+
+export default App
+```
+
+Com isso, as informações do tema são injetadas para todos os componentes, inclusive para o `GlobalStyles`, assim é possível alterar algumas informações do estilo global para pegar direto do tema, desta forma no arquivo `src/styles/global.ts`:
+
+```TypeScript
+import { createGlobalStyle, css } from 'styled-components'
+
+const GlobalStyles = createGlobalStyle`
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 100;
+    font-display: swap;
+    src: url('/fonts/poppins-v20-latin-100.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/poppins-v20-latin-regular.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('/fonts/poppins-v20-latin-600.woff2') format('woff2');
+  }
+
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ${({ theme }) => css`
+    html {
+      font-size: 62.5%;
+    }
+
+    body {
+      font-family: ${theme.font.family};
+      font-size: ${theme.font.sizes.medium};
+    }
+  `}
+`
+
+export default GlobalStyles
+```
+
+É necessário importar o componente `css` do **Styled Component**, porém para fazer isso funcionar é necessário criar o `DefaultTheme` através do [*declaration file*](https://styled-components.com/docs/api#create-a-declarations-file).
+
+E como tema padrão, vamos usar o conteúdo do `theme.ts`. Sendo assim, para o Styled Component entender isso, vamos criar um arquivo chamado `styled-components.d.ts` (`.d` simboliza arquivo de declaração) na raíz do projeto, com o seguinte conteúdo:
+
+```TypeScript
+import theme from 'styles/theme'
+
+// inferência de tipos
+type Theme = typeof theme
+
+declare module 'styled-components' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  export interface DefaultTheme extends Theme {}
+}
+```
+
+Desta forma, o **Styled Components** irá fazer um *merge* do conteúdo dele com o tema que criamos. É para isso que serve o arquivo de declaração (*declaration file*).
+
+O comentário `// eslint-disable-next-line @typescript-eslint/no-empty-interface` serve para o Eslint desabilitar o erro, pois não é correto criar uma `interface` vazia. Mas neste caso faz sentido.
+
+### Corrigindo o Storybook
+
+Com as alterações feitas anteriormente, se você rodar o Storybook com o comando `yarn storybook`, irá ocorrer o seguinte erro:
+
+```
+Error: Cannot read properties of undefined (reading 'font')
+```
+
+Isso que o Storybook não está lendo o arquivo `_app.tsx`, então ele não tem o `ThemeProvider`, para corrigir isso basta alterar o arquivo `.storybook/preview.js` para chamar o `ThemeProvider`, desta forma:
+
+```javascript
+
+import { ThemeProvider } from 'styled-components'
+import GlobalStyles from '../src/styles/global'
+import theme from '../src/styles/theme'
+
+export const decorators = [
+  (Story) => (
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Story />
+    </ThemeProvider>
+  )
+]
+// ...código omitido
+```
 
 ---
 
