@@ -272,7 +272,6 @@ Error: Cannot read properties of undefined (reading 'font')
 Isso que o Storybook não está lendo o arquivo `_app.tsx`, então ele não tem o `ThemeProvider`, para corrigir isso basta alterar o arquivo `.storybook/preview.js` para chamar o `ThemeProvider`, desta forma:
 
 ```javascript
-
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from '../src/styles/global'
 import theme from '../src/styles/theme'
@@ -285,6 +284,34 @@ export const decorators = [
     </ThemeProvider>
   )
 ]
+// ...código omitido
+```
+
+## Configurando webpack do Storybook para absolute path
+
+No arquivo `.storybook/main.js`, você consegue customizar algumas [configurações do webpack](https://storybook.js.org/docs/react/builders/webpack#extending-storybooks-webpack-config) através do atributo `webpackFinal`, desta forma:
+
+```javascript
+module.exports = {
+  stories: ["../src/components/**/stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-essentials"],
+  //...código omitido
+  webpackFinal: (config) => {
+    config.resolve.modules.push(`${process.cwd()}/src`)
+    return config
+  }
+};
+```
+
+Onde `${process.cwd()}` pega o diretório raíz do projeto.
+
+Com isso, agora no arquivo `.storybook/preview.js` não precisa mais passar o `../src/` para importar os módulos.
+
+```javascript
+import { ThemeProvider } from 'styled-components'
+import GlobalStyles from 'styles/global'
+import theme from 'styles/theme'
+
 // ...código omitido
 ```
 
