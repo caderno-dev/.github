@@ -1,12 +1,12 @@
 # Seção 13: Módulo 3: Iniciando o projeto da Won e criando primeiros fundações
 
-> [Repositório do projeto](https://github.com/felipebbarbosa/curso_udemy_react-avancado_client)
+> [Repositório do projeto](https://github.com/caderno-dev/curso_udemy_react-avancado_client)
 
 
 ## Iniciando o projeto através do Boilerplate
 
 ```bash
-yarn create next-app -e https://github.com/felipebbarbosa/curso_udemy_react-avancado_boilerplate client
+yarn create next-app -e https://github.com/caderno-dev/curso_udemy_react-avancado_boilerplate client
 ```
 
 Onde:
