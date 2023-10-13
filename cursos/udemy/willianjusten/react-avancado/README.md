@@ -31,7 +31,7 @@ Repositórios usados no curso:
 
 - [Seção 13: Iniciando o projeto da Won e criando primeiros fundações](./s13m3_iniciando-projeto-won.md)
 - [Seção 14: Criando primeiro componente Logo (SVG + React)](./s14m3_criando-primeiro-componente-logo.md)
-- Seção 15: Criando componente primitivos Heading, Buttons e helper responsivo
+- [Seção 15: Criando componente primitivos Heading, Buttons e helper responsivo](./s15m3_criando-componentes-primitivos.md)
 - Seção 16: Criando um menu completo com TDD e acessibilidade
 - Seção 17: Ajustes/Refactor em componentes já existentes e Footer
 - Seção 18: Criando elementos de destaque - Banner, Ribbon e Highlight
