@@ -42,7 +42,7 @@ Repositórios usados no curso:
 - [Seção 7: Iniciando o projeto da Won e criando primeiros fundações](./s7m3_iniciando-projeto-won.md)
 - [Seção 8: Criando primeiro componente Logo (SVG + React)](./s8m3_criando-primeiro-componente-logo.md)
 - [Seção 9: Criando componente primitivos Heading, Buttons e helper responsivo](./s9m3_criando-componentes-primitivos.md)
-- Seção 10: Criando um menu completo com TDD e acessibilidade
+- [Seção 10: Criando um menu completo com TDD e acessibilidade](./s10m3_criando-menu-completo.md)
 - Seção 11: Ajustes/Refactor em componentes já existentes e Footer
 - Seção 12: Criando elementos de destaque - Banner, Ribbon e Highlight
 - Seção 13: Criando GameCard

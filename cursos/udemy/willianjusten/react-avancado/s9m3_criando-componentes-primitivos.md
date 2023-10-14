@@ -2,7 +2,6 @@
 
 > [Repositório do projeto](https://github.com/caderno-dev/curso_udemy_react-avancado_client)
 
-
 ## Criando o componente e suas variações
 
 **Heading** são os títulos. Para criar o componente, vamos de:
