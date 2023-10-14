@@ -1,4 +1,4 @@
-# Seção 14: Módulo 3: Criando primeiro componente Logo (SVG + React)
+# Seção 8: Módulo 3: Criando primeiro componente Logo (SVG + React)
 
 > [Repositório do projeto](https://github.com/caderno-dev/curso_udemy_react-avancado_client)
 

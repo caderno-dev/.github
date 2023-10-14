@@ -1,4 +1,4 @@
-# Seção 15: Módulo 3: Criando componentes primitivos Heading, Button e helper responsivo
+# Seção 9: Módulo 3: Criando componentes primitivos Heading, Button e helper responsivo
 
 > [Repositório do projeto](https://github.com/caderno-dev/curso_udemy_react-avancado_client)
 

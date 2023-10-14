@@ -1,4 +1,4 @@
-# Seção 13: Módulo 3: Iniciando o projeto da Won e criando primeiros fundações
+# Seção 7: Módulo 3: Iniciando o projeto da Won e criando primeiros fundações
 
 > [Repositório do projeto](https://github.com/caderno-dev/curso_udemy_react-avancado_client)
 
