@@ -4,6 +4,6 @@ Repositório que reunem minhas anotações e links para os repositórios de curs
 
 🏫 [Cursos](./cursos/README.md)<br> 
 📚 [Livros](./livros/README.md)<br>
-[Anotações gerais](./annotations/README.md)
+📝 [Outras anotações](./annotations/README.md)
 ---
 2023 - Felipe B. Barbosa
