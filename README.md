@@ -1,9 +1,11 @@
 # `_caderno.dev`
 
-Repositório que reunem minhas anotações e links para os repositórios de cursos, livros e outras mídias sobre programação e de tecnologias em geral que consumi ao longo do tempo.
+Repositório que reúne minhas anotações e repositórios de cursos, livros e outras mídias sobre programação e de tecnologias em geral que consumi ao longo do tempo.
 
-🏫 [Cursos](./cursos/README.md)<br> 
-📚 [Livros](./livros/README.md)<br>
-📝 [Outras anotações](./annotations/README.md)
+## Categorias
+
+1. 🏫 [Cursos](./cursos/README.md)
+2. 📚 [Livros](./livros/README.md)
+3. 📝 [Outras anotações](./annotations/README.md)
 ---
 2023 - Felipe B. Barbosa
