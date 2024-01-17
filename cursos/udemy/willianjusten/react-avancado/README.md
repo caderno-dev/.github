@@ -43,8 +43,8 @@ Repositórios usados no curso:
 - [Seção 8: Criando primeiro componente Logo (SVG + React)](./s8m3_criando-primeiro-componente-logo.md)
 - [Seção 9: Criando componente primitivos Heading, Buttons e helper responsivo](./s9m3_criando-componentes-primitivos.md)
 - [Seção 10: Criando um menu completo com TDD e acessibilidade](./s10m3_criando-menu-completo.md)
-- Seção 11: Ajustes/Refactor em componentes já existentes e Footer
-- Seção 12: Criando elementos de destaque - Banner, Ribbon e Highlight
+- [Seção 11: Ajustes/Refactor em componentes já existentes e Footer](./s11m3_refactor-componentes-e-footer.md)
+- [Seção 12: Criando elementos de destaque - Banner, Ribbon e Highlight](./s12m3_criando-elementos-destaque.md)
 - Seção 13: Criando GameCard
 - Seção 14: Trabalhando com componentes de terceiros - Sliders com React Slick
 - Seção 15: Criando a página de Home
