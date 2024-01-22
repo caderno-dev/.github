@@ -14,6 +14,8 @@ Para criar o componente execute `yarn generate Banner` no **terminal**.
 
 ## Ribbon Parte 1: Criando estrutura com TDD
 
+Para criar o componente execute `yarn generate Ribbon` no **terminal**.
+
 [Código alterado nesta aula](https://github.com/caderno-dev/curso_udemy_react-avancado_client/commit/1d9a28cd35fcecda36a54fd30a13e7f822ad10a7) | [Vídeo da aula](https://www.udemy.com/course/react-avancado/learn/lecture/22153860#overview)
 
 ## Ribbon Parte 2: Criando os estilos
@@ -30,23 +32,25 @@ Para criar o componente execute `yarn generate Banner` no **terminal**.
 
 ## Highlight Parte 1: Apresentação do componente
 
+Para criar o componente execute `yarn generate Highlight` no **terminal**.
+
 [Vídeo da aula](https://www.udemy.com/course/react-avancado/learn/lecture/22205692#overview)
 
 ## Highlight Parte 2: Criando a estrutura e testes
 
-[Código alterado nesta aula](#) | [Vídeo da aula](https://www.udemy.com/course/react-avancado/learn/lecture/22205698#overview)
+[Código alterado nesta aula](https://github.com/caderno-dev/curso_udemy_react-avancado_client/commit/7fae22209dba32a6fd4f40e7550835d875489606) | [Vídeo da aula](https://www.udemy.com/course/react-avancado/learn/lecture/22205698#overview)
 
 ## Highlight Parte 3: Criando o CSS em detalhes
 
-[Código alterado nesta aula](#) | [Vídeo da aula](https://www.udemy.com/course/react-avancado/learn/lecture/22205700#overview)
+[Código alterado nesta aula](https://github.com/caderno-dev/curso_udemy_react-avancado_client/commit/7983777715f16d07c178e038016127ce81f4b367) | [Vídeo da aula](https://www.udemy.com/course/react-avancado/learn/lecture/22205700#overview)
 
 ## Highlight Parte 4: Adicionando opação de Float Image
 
-[Código alterado nesta aula](#) | [Vídeo da aula](https://www.udemy.com/course/react-avancado/learn/lecture/22205702#overview)
+[Código alterado nesta aula](https://github.com/caderno-dev/curso_udemy_react-avancado_client/commit/6cf1992dbf8bc9f1caf941ada72618baedcdc5bb) | [Vídeo da aula](https://www.udemy.com/course/react-avancado/learn/lecture/22205702#overview)
 
 ## Highlight Parte 5: Criando opção de diferentes alignments
 
-[Código alterado nesta aula](#) | [Vídeo da aula](https://www.udemy.com/course/react-avancado/learn/lecture/22205704#overview)
+[Código alterado nesta aula](https://github.com/caderno-dev/curso_udemy_react-avancado_client/commit/0840db8a6dc549a48a2ef18f56557b45830f5e6f) | [Vídeo da aula](https://www.udemy.com/course/react-avancado/learn/lecture/22205704#overview)
 
 
 ---
