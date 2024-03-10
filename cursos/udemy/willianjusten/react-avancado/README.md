@@ -48,7 +48,7 @@ Repositórios usados no curso:
 - Seção 13: Criando GameCard
 - Seção 14: Trabalhando com componentes de terceiros - Sliders com React Slick
 - Seção 15: Criando a página de Home
-- Seção 16: Dicas rápidas de TS e nova variável de button
+- [Seção 16: Dicas rápidas de TS e nova variável de button](./s16m3_dicas.md)
 - Seção 17: Criando componentes de formulário
 - Seção 18: Criando páginas de Sign In e Sign Out
 - Seção 19: Refatorando a Home, criando template Base e aprendendo mais de mocks
