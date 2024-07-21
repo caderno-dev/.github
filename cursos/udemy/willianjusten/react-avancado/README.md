@@ -50,7 +50,7 @@ Repositórios usados no curso:
 - Seção 15: Criando a página de Home
 - [Seção 16: Dicas rápidas de TS e nova variável de button](./s16m3_dicas.md)
 - Seção 17: Criando componentes de formulário
-- Seção 18: Criando páginas de Sign In e Sign Out
+- [Seção 18: Criando páginas de Sign In e Sign Out](./s18m3_criando-paginas-signin-signout.md)
 - Seção 19: Refatorando a Home, criando template Base e aprendendo mais de mocks
 - Seção 20: Criando os componentes para página de Games
 - Seção 21: Criando a página de Games
