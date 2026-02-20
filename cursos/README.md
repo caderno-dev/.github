@@ -6,7 +6,6 @@
 
 - 2017 - [Webservices REST com JAX-RS e Jersey](https://github.com/caderno-dev/curso_alura_webservices-rest-com-jaxrs-e-jersey) ✅
 - 2018 - [Spring MVC](https://github.com/caderno-dev/curso_alura_spring-mvc) ✅
-- 2021 - [Formação Java e Orientação a Objetos](./alura/formacao-java/README.md) ✅
 - 2022 - [Imersão Java](https://github.com/caderno-dev/curso_alura_imersao-java) ❌
 
 ## Full Cycle
